@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2160.043, g: 2263.8164, b: 3286.5, a: 1}
+  m_IndirectSpecularColor: {r: 2159.5537, g: 2263.3438, b: 3286.3984, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1082,7 +1082,7 @@ GameObject:
   - component: {fileID: 1638842510}
   - component: {fileID: 1638842512}
   m_Layer: 0
-  m_Name: Fight_Camera_VM
+  m_Name: Fight Camera VM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,6 +1992,8 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652903222381}
   - component: {fileID: 5866666021078562327}
+  - component: {fileID: 5866666021078562328}
+  - component: {fileID: 5866666021078562329}
   m_Layer: 0
   m_Name: Character A
   m_TagString: Untagged
@@ -2009,6 +2011,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450653336260311}
   - component: {fileID: 5866666021652403373}
+  - component: {fileID: 5866666021652403374}
   m_Layer: 0
   m_Name: Character B
   m_TagString: Untagged
@@ -4860,6 +4863,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021078562328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148918679255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7585e7f76224648a03e4c59e4f0fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allowDepthMovement: 0
+  _allowRootRotation: 0
+--- !u!114 &5866666021078562329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148918679255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7f42f5b12797dc42a4af2d972c8a1b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _inputHardness: 5
 --- !u!95 &5866666021652403373
 Animator:
   serializedVersion: 4
@@ -4880,6 +4910,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5866666021652403374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149418792045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7585e7f76224648a03e4c59e4f0fd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _allowDepthMovement: 0
+  _allowRootRotation: 0
 --- !u!4 &5901452234969136878
 Transform:
   m_ObjectHideFlags: 0

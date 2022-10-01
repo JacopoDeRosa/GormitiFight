@@ -18,7 +18,10 @@ public class GameCharactersData : MonoBehaviour
 #if UNITY_EDITOR
     private void OnGUI()
     {
-        GUI.Label(new Rect(0, 0, 100, 100), Distance.ToString() + "m");
+        GUIStyle style = new GUIStyle();
+        style.fontSize = 32;
+        style.normal.textColor = Color.white;
+        GUI.Label(new Rect(25, 25, 300, 300), Distance.ToString() + "m", style);
     }
     private void OnDrawGizmos()
     {

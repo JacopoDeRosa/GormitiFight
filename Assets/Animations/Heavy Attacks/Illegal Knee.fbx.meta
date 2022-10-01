@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: f4df592d1621a9c449b2e589889c3432
+guid: 0faeb52ccf9c9634d89d5755f9e9cbaa
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Y Bot | Taunt
+    second: Y Bot | Knee
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Y Bot | Taunt
+      name: Y Bot | Knee
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 68
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: cafe284146706fe4f9338fa1942de7e4
+guid: cb97a28029fa2f04d9b06644c0646410
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: mixamo.com
+    second: Y Bot | Jab
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,11 +36,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: mixamo.com
+      name: Y Bot | Jab
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 64
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
