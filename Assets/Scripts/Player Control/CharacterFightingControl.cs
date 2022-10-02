@@ -19,6 +19,7 @@ public class CharacterFightingControl : MonoBehaviour
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _activeInputs = new List<CharacterInput>();
     }
 
     private void Start()
@@ -37,13 +38,12 @@ public class CharacterFightingControl : MonoBehaviour
 
     private void OnHeavyAttackStart(InputAction.CallbackContext context)
     {
-        Debug.Log("Heavy Attack");
+        SetTrigger("Heavy Attack");
     }
 
     private void OnLightAttackStart(InputAction.CallbackContext context)
     {
-        Debug.Log("Light Attack");
-        _animator.SetTrigger("Light Attack");
+        SetTrigger("Light Attack");
     }
 
     private void OnParryStart(InputAction.CallbackContext context)
@@ -53,8 +53,7 @@ public class CharacterFightingControl : MonoBehaviour
 
     private void OnJumpStart(InputAction.CallbackContext context)
     {
-        Debug.Log("Jump");
-        _animator.SetTrigger("Jump");
+        SetTrigger("Jump");
     }
 
     private void OnMove(InputAction.CallbackContext context)
@@ -64,9 +63,63 @@ public class CharacterFightingControl : MonoBehaviour
 
     private void Update()
     {
+        UpdateActiveInputs();
+        SmoothInput();
+        SendMoveInput();
+
+    }
+
+    private void SmoothInput()
+    {
         _actualHardness = Mathf.Clamp01(_inputHardness * Time.deltaTime);
         _smoothMoveInput = Vector2.Lerp(_smoothMoveInput, _moveInput, _actualHardness);
+    }
+
+    private void SendMoveInput()
+    {
         _animator.SetFloat("Horizontal Speed", _smoothMoveInput.x);
         _animator.SetFloat("Vertical Speed", _smoothMoveInput.y);
+    }
+
+    private void UpdateActiveInputs()
+    {
+        List<CharacterInput> toRemove = new List<CharacterInput>();
+        foreach (CharacterInput input in _activeInputs)
+        {
+           if(input.ShouldDie())
+           {
+                toRemove.Add(input);
+           }
+        }
+
+        foreach (CharacterInput input in toRemove)
+        {
+            _activeInputs.Remove(input);
+            _animator.ResetTrigger(input.Name);
+        }
+        
+    }
+
+    private bool GetActiveInput(string name, out CharacterInput input)
+    {
+        input = _activeInputs.Find(input => input.Name.Equals(name));
+        if(input == null)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    private void SetTrigger(string name)
+    {
+        _animator.SetTrigger(name);
+        if (GetActiveInput(name, out CharacterInput input))
+        {
+            input.ResetTimer();
+        }
+        else
+        {
+            _activeInputs.Add(new CharacterInput(name));
+        }
     }
 }

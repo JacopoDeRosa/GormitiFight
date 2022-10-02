@@ -5,7 +5,7 @@ ModelImporter:
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: Y Bot | Hook
+    second: Y Bot | Light Hook
   externalObjects: {}
   materials:
     materialImportMode: 2
@@ -36,7 +36,7 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Y Bot | Hook
+      name: Y Bot | Light Hook
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
