@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 2159.5537, g: 2263.3516, b: 3286.3984, a: 1}
+  m_IndirectSpecularColor: {r: 2159.5537, g: 2263.3438, b: 3286.375, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1994,6 +1994,8 @@ GameObject:
   - component: {fileID: 5866666021078562327}
   - component: {fileID: 5866666021078562328}
   - component: {fileID: 5866666021078562329}
+  - component: {fileID: 5866666021078562330}
+  - component: {fileID: 5866666021078562331}
   m_Layer: 0
   m_Name: Character A
   m_TagString: Untagged
@@ -4890,6 +4892,39 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inputHardness: 5
+--- !u!114 &5866666021078562330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148918679255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a6aadda898794449f851700f211983, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _head: {fileID: 5901452234969136878}
+  _lElbow: {fileID: 7410462538046862719}
+  _lHand: {fileID: 6502182838842940997}
+  _rElbow: {fileID: 2563496968812576302}
+  _rHand: {fileID: 1852576807339340878}
+  _lKnee: {fileID: 7151331951394024795}
+  _lFoot: {fileID: 2348787447479080375}
+  _rKnee: {fileID: 5477181764740531548}
+  _rFoot: {fileID: 608321762251238906}
+--- !u!114 &5866666021078562331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148918679255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 812a403e7f15d374fa6dbfd89adf3337, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &5866666021652403373
 Animator:
   serializedVersion: 4

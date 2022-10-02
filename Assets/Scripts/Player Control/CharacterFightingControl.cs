@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+
+
 public class CharacterFightingControl : MonoBehaviour
 {
     [SerializeField] private float _inputHardness = 1;
@@ -26,7 +28,7 @@ public class CharacterFightingControl : MonoBehaviour
     {
         _input = FindObjectOfType<PlayerInput>();
 
-        if(_input)
+        if (_input)
         {
             _input.actions["Heavy Attack"].started += OnHeavyAttackStart;
             _input.actions["Light Attack"].started += OnLightAttackStart;
@@ -48,7 +50,7 @@ public class CharacterFightingControl : MonoBehaviour
 
     private void OnParryStart(InputAction.CallbackContext context)
     {
-        Debug.Log("Parry");
+        SetTrigger("Parry");
     }
 
     private void OnJumpStart(InputAction.CallbackContext context)
@@ -86,10 +88,10 @@ public class CharacterFightingControl : MonoBehaviour
         List<CharacterInput> toRemove = new List<CharacterInput>();
         foreach (CharacterInput input in _activeInputs)
         {
-           if(input.ShouldDie())
-           {
+            if (input.ShouldDie())
+            {
                 toRemove.Add(input);
-           }
+            }
         }
 
         foreach (CharacterInput input in toRemove)
@@ -97,13 +99,13 @@ public class CharacterFightingControl : MonoBehaviour
             _activeInputs.Remove(input);
             _animator.ResetTrigger(input.Name);
         }
-        
+
     }
 
     private bool GetActiveInput(string name, out CharacterInput input)
     {
         input = _activeInputs.Find(input => input.Name.Equals(name));
-        if(input == null)
+        if (input == null)
         {
             return false;
         }
