@@ -20,17 +20,14 @@ public class HitboxController : MonoBehaviour
     }
     private void OnValidate()
     {
-        if(_areas == null || _areas.Count == 0)
-        {
-            FindAreas();
-        }
+        FindAreas();     
         if (_limbDamageMultipliers != null)
         {
             var damageMultipliersSet = new HashSet<LimbDamageMultiplier>(_limbDamageMultipliers);
             if(damageMultipliersSet.Count != _limbDamageMultipliers.Count)
             {
                 Debug.LogWarning("Warning: " + gameObject.name + "'s Hitbox component contains duplicate damage multipliers," +
-                    " these will be scrubbed in awake");
+                    " these will be scrubbed at runtime");
             }
         }
 

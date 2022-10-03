@@ -2,17 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hurtbox : MonoBehaviour
+[System.Serializable]
+public class Hurtbox
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+#if UNITY_EDITOR
+    [SerializeField] private string _name;
 
-    // Update is called once per frame
-    void Update()
+    /// <summary>
+    /// Editor Only Function
+    /// </summary>
+    /// <param name="name"></param>
+    public void SetName(string name)
     {
-        
+        _name = name;
+    }
+#endif
+
+    [SerializeField] private HurtboxPiece[] _pieces;
+
+    public void CheckPieces(LayerMask mask)
+    {
+        foreach (HurtboxPiece piece in _pieces)
+        {
+          Debug.Log(piece.CheckHurtbox(mask).Length);
+        }
     }
 }

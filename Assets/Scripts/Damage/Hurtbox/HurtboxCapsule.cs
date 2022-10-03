@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HurtboxCapsule : MonoBehaviour
+public class HurtboxCapsule : HurtboxPiece
 {
     [SerializeField] private float _radius, _height;
 
@@ -18,15 +18,13 @@ public class HurtboxCapsule : MonoBehaviour
         Gizmos.DrawLine(top - new Vector3(_radius, 0, 0), bottom - new Vector3(_radius, 0, 0));
         Gizmos.DrawLine(top + new Vector3(0, 0, _radius), bottom + new Vector3(0, 0, _radius));
         Gizmos.DrawLine(top - new Vector3(0, 0, _radius), bottom - new Vector3(0, 0, _radius));
-
         // To get the rotated position without matrix use transform.TransformPoint();
     }
 
-    public void CheckHurtbox()
+    public override Collider[] CheckHurtbox(LayerMask mask)
     {
         Vector3 top = new Vector3(0, _height / 2, 0);
         Vector3 bottom = new Vector3(0, -(_height / 2), 0);
-
-        Physics.CheckCapsule(transform.TransformPoint(top), transform.TransformPoint(bottom), _radius);
+        return Physics.OverlapCapsule(transform.TransformPoint(top), transform.TransformPoint(bottom), _radius, mask);
     }
 }
