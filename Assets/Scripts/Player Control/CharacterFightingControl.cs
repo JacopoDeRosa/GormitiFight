@@ -8,13 +8,14 @@ using UnityEngine.InputSystem;
 public class CharacterFightingControl : MonoBehaviour
 {
     [SerializeField] private float _inputHardness = 1;
+    [SerializeField] private bool _invertMovement;
 
     private Animator _animator;
 
-    private PlayerInput _input;
     private Vector2 _moveInput;
     private Vector2 _smoothMoveInput;
     private float _actualHardness;
+
 
     private List<CharacterInput> _activeInputs;
 
@@ -24,43 +25,34 @@ public class CharacterFightingControl : MonoBehaviour
         _activeInputs = new List<CharacterInput>();
     }
 
-    private void Start()
-    {
-        _input = FindObjectOfType<PlayerInput>();
-
-        if (_input)
-        {
-            _input.actions["Heavy Attack"].started += OnHeavyAttackStart;
-            _input.actions["Light Attack"].started += OnLightAttackStart;
-            _input.actions["Parry"].started += OnParryStart;
-            _input.actions["Jump"].started += OnJumpStart;
-            _input.actions["Move"].performed += OnMove;
-        }
-    }
-
-    private void OnHeavyAttackStart(InputAction.CallbackContext context)
+    public void OnHeavyAttackStart(InputAction.CallbackContext context)
     {
         SetTrigger("Heavy Attack");
     }
 
-    private void OnLightAttackStart(InputAction.CallbackContext context)
+    public void OnLightAttackStart(InputAction.CallbackContext context)
     {
         SetTrigger("Light Attack");
     }
 
-    private void OnParryStart(InputAction.CallbackContext context)
+    public void OnParryStart(InputAction.CallbackContext context)
     {
         SetTrigger("Parry");
     }
 
-    private void OnJumpStart(InputAction.CallbackContext context)
+    public void OnJumpStart(InputAction.CallbackContext context)
     {
         SetTrigger("Jump");
     }
 
-    private void OnMove(InputAction.CallbackContext context)
+    public void OnMove(InputAction.CallbackContext context)
     {
+   
         _moveInput = context.ReadValue<Vector2>();
+        if (_invertMovement)
+        {
+            _moveInput *= -1;
+        }
     }
 
     private void Update()
@@ -68,7 +60,6 @@ public class CharacterFightingControl : MonoBehaviour
         UpdateActiveInputs();
         SmoothInput();
         SendMoveInput();
-
     }
 
     private void SmoothInput()
